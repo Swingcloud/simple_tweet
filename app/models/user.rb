@@ -4,6 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :following_friendships, class_name: 'Friendship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :following, through: :following_friendships, source: :followed
+
+  has_many :followed_friendships, class_name: 'Friendship', foreign_key: 'followed_id', dependent: :destroy
+  has_many :followers, through: :followed_friendships, source: :follower
+
   def admin?
     self.role == "admin"
   end
