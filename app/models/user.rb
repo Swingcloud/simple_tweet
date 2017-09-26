@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   mount_uploader :image, AvatarUploader
 
+  validates :tag_name, presence: true
+
   def admin?
     self.role == "admin"
   end
