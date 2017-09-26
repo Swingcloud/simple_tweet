@@ -1,10 +1,14 @@
-<%= f.label :description, "what are you thinking about?" %>
-<%= f.text_field :description %>
+<div class="field">
+  <%= f.label :description, "what are you thinking about?" %>
+  <%= f.text_area :description %>
+</div>
 
-<%= f.label :image, "upload picture" %>
-<%= f.file_field :image %>
-<% if f.object.image? %>
-  <%= image_tag f.object.image.url %>
-  <%= f.label :remove_image %>
-  <%= f.check_box :remove_image %>
-<% end %>
+<div class="field">
+  <%= f.label :image, "upload picture" %>
+  <%= f.file_field :image %>
+  <% if f.object.image? %>
+    <%= image_tag f.object.image.url %>
+    <%= f.label :remove_image %>
+    <%= f.check_box :remove_image %>
+  <% end %>
+</div>
