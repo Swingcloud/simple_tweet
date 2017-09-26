@@ -1,0 +1,6 @@
+<%= @user.tag %>
+
+<% @tweets.each do |tweet| %>
+  <h2><%= tweet.user.tag %></h2>
+  <p><%= tweet.description %></p>
+<% end %>
