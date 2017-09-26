@@ -1,13 +1,17 @@
+<p><%= link_to 'say somthing!', new_tweet_path %></p>
+
 <% @tweets.each do |tweet| %>
-  <h2><%= tweet.user.tag %> </h2>
+  <h2><%= link_to tweet.user.tag, user_path(tweet.user) %> </h2>
   <p><%= tweet.description %> </p>
   <% if tweet.image? %>
     <p><%= image_tag tweet.image.url %></p>
   <% end %>
-  <%= current_user.like_tweets.exists?(tweet.id) %>
   <% if current_user.like_tweets.exists?(tweet.id) %>
     <p><%= link_to 'unlike!', like_tweet_path(tweet), method: :post %></p>
   <% else %>
     <p><%= link_to 'like!', like_tweet_path(tweet), method: :post %></p>
+  <% end %>
+  <% if tweet.user_id == current_user.id %>
+    <%= link_to 'edit', edit_tweet_path(tweet) %>
   <% end %>
 <% end %>
