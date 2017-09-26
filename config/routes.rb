@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :tweets
+
   namespace :admin do
   	root 'dashboard#index'
 	end
