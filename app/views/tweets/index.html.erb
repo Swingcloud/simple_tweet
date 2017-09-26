@@ -4,4 +4,10 @@
   <% if tweet.image? %>
     <p><%= image_tag tweet.image.url %></p>
   <% end %>
+  <%= current_user.like_tweets.exists?(tweet.id) %>
+  <% if current_user.like_tweets.exists?(tweet.id) %>
+    <p><%= link_to 'unlike!', like_tweet_path(tweet), method: :post %></p>
+  <% else %>
+    <p><%= link_to 'like!', like_tweet_path(tweet), method: :post %></p>
+  <% end %>
 <% end %>

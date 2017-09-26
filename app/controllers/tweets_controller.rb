@@ -32,6 +32,20 @@ class TweetsController < ApplicationController
     end
   end
 
+  def like
+    @tweet = Tweet.find(params[:id])
+    @user = current_user
+    @like_tweet = @user.likes.find_by(tweet_id: @tweet.id)
+    byebug
+    if @like_tweet
+      @like_tweet.destroy
+      redirect_to tweets_path
+    else
+      @user.likes.create(tweet_id: @tweet.id)
+      redirect_to tweets_path
+    end
+  end
+
   private
 
   def tweet_params

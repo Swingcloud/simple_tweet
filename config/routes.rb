@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :tweets
+  resources :tweets do
+    member do
+      post :like
+    end
+  end
   resources :users
 
   namespace :admin do
