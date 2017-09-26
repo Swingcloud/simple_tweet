@@ -1,4 +1,7 @@
 <% @tweets.each do |tweet| %>
   <h2><%= tweet.user.tag %> </h2>
   <p><%= tweet.description %> </p>
+  <% if tweet.image? %>
+    <p><%= image_tag tweet.image.url %></p>
+  <% end %>
 <% end %>

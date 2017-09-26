@@ -1,2 +1,10 @@
 <%= f.label :description, "what are you thinking about?" %>
 <%= f.text_field :description %>
+
+<%= f.label :image, "upload picture" %>
+<%= f.file_field :image %>
+<% if f.object.image? %>
+  <%= image_tag f.object.image.url %>
+  <%= f.label :remove_image %>
+  <%= f.check_box :remove_image %>
+<% end %>
