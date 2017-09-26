@@ -13,10 +13,11 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# for Heroku 
+# for Heroku
 gem 'pg'
 gem 'rails_12factor'
-
+# db seeds file
+gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
