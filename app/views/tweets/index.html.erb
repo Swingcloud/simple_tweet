@@ -4,7 +4,7 @@
   <h2><%= link_to tweet.user.tag, user_path(tweet.user) %> </h2>
   <p><%= tweet.description %> </p>
   <% if tweet.image? %>
-    <p><%= image_tag tweet.image.url %></p>
+    <p><%= image_tag(tweet.image.url, height: '150', width: '150') %></p>
   <% end %>
   <% if current_user.like_tweets.exists?(tweet.id) %>
     <p><%= link_to 'unlike!', like_tweet_path(tweet), method: :post %></p>
