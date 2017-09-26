@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :followed_friendships, class_name: 'Friendship', foreign_key: 'followed_id', dependent: :destroy
   has_many :followers, through: :followed_friendships, source: :follower
 
+  mount_uploader :image, ImageUploader
+
   def admin?
     self.role == "admin"
   end
